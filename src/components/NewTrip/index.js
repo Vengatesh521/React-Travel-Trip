@@ -88,7 +88,15 @@ const NewTrip = ({stepsList}) => {
                 return (
                   <li key={step.stepId} className={className}>
                     <div className="index">
-                      {stepIndex > index ? '✔' : index + 1}
+                      {stepIndex > index ? (
+                        <img
+                          className="completed-img"
+                          src="https://assets.ccbp.in/frontend/react-js/travel-trip-steps-successfully-completed-img.png"
+                          alt={step.displayText}
+                        />
+                      ) : (
+                        index + 1
+                      )}
                     </div>
                     {step.displayText}
                   </li>

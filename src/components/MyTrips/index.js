@@ -55,27 +55,26 @@ const MyTrips = () => {
           </Link>
         </div>
       ) : (
-        <div className="trip-cards">
+        <ul className="trip-cards">
           <h1 className="my-trips-heading">My Trips</h1>
 
           {trips.map(trip => (
-            <div key={trip.id} className="trip-card">
-              <h3>{trip.name}</h3>
-              <label> {trip.endLocation}</label>
+            <li key={trip.id} className="trip-card">
+              <h1>{trip.name}</h1>
+              <h1> {trip.endLocation}</h1>
               <div>
                 <p>Date:</p>
-                <label>
-                  {' '}
+                <p>
                   {trip.startDate} to {trip.endDate}
-                </label>
+                </p>
               </div>
 
               <button type="button" onClick={() => handleDelete(trip.id)}>
                 Cancel
               </button>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   )
