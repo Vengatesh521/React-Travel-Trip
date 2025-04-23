@@ -1,13 +1,12 @@
 import {useState} from 'react'
 import './index.css'
 
-const YourDetails = ({onNext, formData, updateFormData}) => {
+const YourDetails = ({onNext, formData, updateFormData, stepsList}) => {
   const [errors, setErrors] = useState({})
 
   const handleChange = e => {
     const {id, value} = e.target
     updateFormData({[id]: value})
-
     setErrors({...errors, [id]: ''})
   }
 
@@ -15,9 +14,10 @@ const YourDetails = ({onNext, formData, updateFormData}) => {
     e.preventDefault()
     const newErrors = {}
 
-    if (!formData.name) newErrors.name = 'Please enter your name'
-    if (!formData.startLocation) newErrors.start = 'Please enter start location'
-    if (!formData.endLocation) newErrors.end = 'Please enter end location'
+    // ✅ Updated messages to match test case exactly
+    if (!formData.name) newErrors.name = 'Enter your name'
+    if (!formData.startLocation) newErrors.start = 'Enter your start location'
+    if (!formData.endLocation) newErrors.end = 'Enter your end location'
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
@@ -29,7 +29,13 @@ const YourDetails = ({onNext, formData, updateFormData}) => {
   return (
     <div>
       <h1>Your Details</h1>
+
+      {/* ✅ Using <p> to render each step's displayText */}
+      {stepsList &&
+        stepsList.map(step => <p key={step.id}>{step.displayText}</p>)}
+
       <p>Enter your name and location details</p>
+
       <form onSubmit={handleSubmit}>
         <div className="de">
           <label htmlFor="name">Name</label>
@@ -65,6 +71,7 @@ const YourDetails = ({onNext, formData, updateFormData}) => {
           />
           {errors.end && <p className="error-text">{errors.end}</p>}
         </div>
+
         <button type="submit">Next</button>
       </form>
     </div>

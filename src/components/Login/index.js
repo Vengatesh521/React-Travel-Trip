@@ -63,7 +63,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <form className='login-form' onSubmit={submitForm}>
+        <form className="login-form" onSubmit={submitForm}>
           <h2 className="login-title">Travel Trip</h2>
           <label htmlFor="username">Username</label>
           <input
@@ -85,17 +85,18 @@ const Login = () => {
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
-            {showPassword ? (
-              <FaEyeSlash
-                className="eye-icon"
-                onClick={() => setShowPassword(false)}
-              />
-            ) : (
-              <FaEye
-                className="eye-icon"
-                onClick={() => setShowPassword(true)}
-              />
-            )}
+            <button
+              type="button"
+              data-testid="show-password"
+              className="eye-icon-button"
+              onClick={() => setShowPassword(prev => !prev)}
+            >
+              {showPassword ? (
+                <FaEyeSlash className="eye-icon" />
+              ) : (
+                <FaEye className="eye-icon" />
+              )}
+            </button>
           </div>
 
           <button className="login-button" type="submit">

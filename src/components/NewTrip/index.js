@@ -65,9 +65,11 @@ const NewTrip = ({stepsList}) => {
           <h1>Travel Trip</h1>
           <div>
             <Link to="/">Home</Link>
-            <Link to="/trips">My Trips</Link>
+            <Link to="/my-trips">My Trips</Link>
           </div>
-          <button onClick={onClickLogout}>Log Out</button>
+          <button type="button" onClick={onClickLogout}>
+            Logout
+          </button>
         </nav>
       </header>
 
@@ -75,23 +77,23 @@ const NewTrip = ({stepsList}) => {
         <div className="container">
           <div className="details">
             <ul>
-              {stepsList.map((step, index) => (
-                <li
-                  key={step.stepId}
-                  className={`${
-                    stepIndex === index
-                      ? 'selectionindecate'
-                      : stepIndex > index
-                      ? 'bg-green'
-                      : ''
-                  }`}
-                >
-                  <div className="index">
-                    {stepIndex > index ? '✔' : index + 1}
-                  </div>
-                  {step.displayText}
-                </li>
-              ))}
+              {stepsList.map((step, index) => {
+                let className = ''
+                if (stepIndex === index) {
+                  className = 'selectionindecate'
+                } else if (stepIndex > index) {
+                  className = 'bg-green'
+                }
+
+                return (
+                  <li key={step.stepId} className={className}>
+                    <div className="index">
+                      {stepIndex > index ? '✔' : index + 1}
+                    </div>
+                    {step.displayText}
+                  </li>
+                )
+              })}
             </ul>
           </div>
 

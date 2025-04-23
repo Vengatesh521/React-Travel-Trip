@@ -1,10 +1,12 @@
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 
 import './App.css'
 import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './components/Home'
 import NewTrip from './components/NewTrip'
+import MyTrips from './components/MyTrips'
+import NotFound from './components/NotFound'
 
 // Note: Use the lists in your code to pass the test cases
 const stepsList = [
@@ -22,18 +24,19 @@ const travelAssistanceList = [
   {value: 'train', displayText: 'Train'},
 ]
 
-const App = () => {
-  return (
-    <Switch>
-      <Route exact path="/login" component={Login} />
-      <ProtectedRoute exact path="/" component={Home} />
-      <ProtectedRoute
-        exact
-        path="/newtrip"
-        render={props => <NewTrip {...props} stepsList={stepsList} />}
-      />
-    </Switch>
-  )
-}
+const App = () => (
+  <Switch>
+    <Route exact path="/login" component={Login} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/my-trips" component={MyTrips} />
+    <ProtectedRoute
+      exact
+      path="/book-a-new-trip"
+      render={props => <NewTrip {...props} stepsList={stepsList} />}
+    />
+    <Route path="/not-found" component={NotFound} />
+    <Redirect to="not-found" />
+  </Switch>
+)
 
 export default App

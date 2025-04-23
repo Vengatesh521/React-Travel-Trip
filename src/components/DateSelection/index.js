@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import './index.css'
 
 const DateSelection = ({onNext, onPrevious, formData, updateFormData}) => {

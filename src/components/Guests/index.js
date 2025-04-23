@@ -2,7 +2,7 @@ import {useState} from 'react'
 import './index.css'
 
 const Guests = ({onNext, onPrevious, formData, updateFormData}) => {
-  const [adults, setAdults] = useState(formData.adults || 0)
+  const [adults, setAdults] = useState(formData.adults || 1)
   const [children, setChildren] = useState(formData.children || 0)
   const [infants, setInfants] = useState(formData.infants || 0)
 
@@ -24,7 +24,7 @@ const Guests = ({onNext, onPrevious, formData, updateFormData}) => {
   }
 
   const decrement = type => {
-    if (type === 'adults' && adults > 0) setAdults(adults - 1)
+    if (type === 'adults' && adults > 1) setAdults(adults - 1)
     if (type === 'children' && children > 0) setChildren(children - 1)
     if (type === 'infants' && infants > 0) setInfants(infants - 1)
   }
@@ -37,14 +37,20 @@ const Guests = ({onNext, onPrevious, formData, updateFormData}) => {
         <div className="de-container">
           <div className="guest-section">
             <div className="details-name">
-              <h2>Adults</h2>
-              <label>Age 13 or above</label>
+              <p>Adults</p>
+              <p htmlFor="adults-hidden-input">Age 13 or above</p>
+              <input
+                id="adults-hidden-input"
+                type="hidden"
+                value={adults}
+                readOnly
+              />
             </div>
             <div className="counter">
               <button type="button" onClick={() => decrement('adults')}>
                 -
               </button>
-              <span>{adults}</span>
+              <p>{adults}</p>
               <button type="button" onClick={() => increment('adults')}>
                 +
               </button>
@@ -53,14 +59,20 @@ const Guests = ({onNext, onPrevious, formData, updateFormData}) => {
           <hr />
           <div className="guest-section">
             <div className="details-name">
-              <h2>Children</h2>
-              <label>Age 2–12</label>
+              <p>Children</p>
+              <p>Age 2-12</p>
+              <input
+                id="children-hidden-input"
+                type="hidden"
+                value={children}
+                readOnly
+              />
             </div>
             <div className="counter">
               <button type="button" onClick={() => decrement('children')}>
                 -
               </button>
-              <span>{children}</span>
+              <p>{children}</p>
               <button type="button" onClick={() => increment('children')}>
                 +
               </button>
@@ -69,14 +81,20 @@ const Guests = ({onNext, onPrevious, formData, updateFormData}) => {
           <hr />
           <div className="guest-section">
             <div className="details-name">
-              <h2>Infants</h2>
-              <label>Under 2</label>
+              <p>Infants</p>
+              <p>Under 2</p>
+              <input
+                id="infants-hidden-input"
+                type="hidden"
+                value={infants}
+                readOnly
+              />
             </div>
             <div className="counter">
               <button type="button" onClick={() => decrement('infants')}>
                 -
               </button>
-              <span>{infants}</span>
+              <p>{infants}</p>
               <button type="button" onClick={() => increment('infants')}>
                 +
               </button>

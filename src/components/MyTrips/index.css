@@ -1,0 +1,43 @@
+.my-trips-container {
+  padding: 20px;
+}
+
+.my-trips-heading {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.my-trips-heading {
+  color: black;
+}
+
+.trip-cards {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.trip-card {
+  display: flex;
+  color: black;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid rgb(230, 229, 229);
+  border-radius: 14px;
+  margin: 14px;
+}
+
+.no-trips {
+  text-align: center;
+  padding: 40px;
+}
+
+.de-h {
+  color: black;
+}
+
+.de-p {
+  color: black;
+}

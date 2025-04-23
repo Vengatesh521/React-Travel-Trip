@@ -17,9 +17,11 @@ const Home = () => {
           <h1>Travel Trip</h1>
           <div>
             <Link to="/">Home</Link>
-            <Link to="/trips">My Trips</Link>
+            <Link to="/my-trips">My Trips</Link>
           </div>
-          <button onClick={onClickLogout}>Log Out</button>
+          <button type="button" onClick={onClickLogout}>
+            Logout
+          </button>
         </nav>
       </header>
 
@@ -30,11 +32,13 @@ const Home = () => {
             Memories.
           </h1>
           <p>
-            With Travel Trip, you can experience new adventures and explore the
+            With travel trip you can experience new adventures and explore the
             best tourist destinations.
           </p>
-          <Link to="newtrip">
-            <button className="b">Book a New Trip</button>
+          <Link to="book-a-new-trip">
+            <button type="button" className="b">
+              Book a new trip
+            </button>
           </Link>
         </div>
         <div>

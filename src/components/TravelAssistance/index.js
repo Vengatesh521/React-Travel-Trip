@@ -19,8 +19,7 @@ const TravelAssistance = ({onNext, onPrevious, formData, updateFormData}) => {
     }
   }
 
-  const handleChange = e => {
-    const value = e.target.value
+  const handleChange = ({target: {value}}) => {
     setSelectedOption(value)
     updateFormData({travelAssistance: value})
   }
