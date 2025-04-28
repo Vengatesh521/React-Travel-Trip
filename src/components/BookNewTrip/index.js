@@ -343,7 +343,6 @@ class BookNewTrip extends Component {
                 onSubmit={onSubmitYourDetailsForm}
                 className="your-details-container"
               >
-                <h1 className="your-details-heading">Travel Trip</h1>
                 <h1 className="your-details-heading">Your Details</h1>
                 <p className="your-details-description">
                   Enter your name and location details
