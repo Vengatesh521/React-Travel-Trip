@@ -1,5 +1,6 @@
 import {Link, useHistory} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import Header from '../Header'
 
 import './index.css'
 
@@ -12,18 +13,7 @@ const Home = () => {
   }
   return (
     <div className="home-container">
-      <header>
-        <nav>
-          <h1>Travel Trip</h1>
-          <div>
-            <Link to="/">Home</Link>
-            <Link to="/my-trips">My Trips</Link>
-          </div>
-          <button type="button" onClick={onClickLogout}>
-            Logout
-          </button>
-        </nav>
-      </header>
+      <Header className="header" />
 
       <main>
         <div>
